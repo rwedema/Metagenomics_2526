@@ -1,0 +1,10 @@
+input_directory: demo-data/
+output_directory: demo-results/
+
+samples:
+ - sample1
+ - sample2
+
+# tools params
+word_count: -w
+line_count: -l

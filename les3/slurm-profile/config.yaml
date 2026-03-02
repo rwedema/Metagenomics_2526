@@ -1,0 +1,11 @@
+executor: slurm
+latency-wait: 30
+
+default-resources:
+  runtime: 1m
+  slurm_partition: workstations
+
+set-resources:
+  bwa_map:
+    slurm_partition: assemblix
+    cpus_per_task: 20
