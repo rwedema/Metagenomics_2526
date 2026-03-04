@@ -2,8 +2,7 @@ configfile: "config/demo-config.yaml"
 
 rule all:
     input:
-        config["output_directory"] + "aggragated_results.tsv",
-        "plots/plot_A.svg"
+        config["output_directory"] + "aggragated_results.tsv"
 
 rule count_lines:
     input:
@@ -49,24 +48,3 @@ rule aggregate:
     script:
         "scripts/aggregate.py"
 
-
-rule get_fast:
-    output:
-        "demo-results/test.fasta"
-    params:
-        id="KY785484",
-        db="nuccore",
-        format="fasta",
-        mode=None,
-    wrapper:
-        "v7.0.0/bio/entrez/efetch"
-
-rule plot:
-    input:
-        "demo-results/test.fasta"
-    output:
-        svg="plots/plot_A.svg"
-    conda:
-        "envs/plot.yaml"
-    script:
-        "scripts/plot_sequence_distribution.py"
